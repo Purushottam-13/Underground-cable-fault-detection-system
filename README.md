@@ -1,116 +1,166 @@
 # ⚡ IoT-Based Underground Cable Fault Detection System
 
-A real-time system that detects and isolates underground cable faults phase-wise (R, Y, B) using Arduino, ESP8266, and cloud integration with Adafruit IO. The system calculates the fault distance based on voltage drop and displays the result on an LCD and a web dashboard.
+An IoT-enabled system that detects and locates underground cable faults in three-phase power lines using Arduino UNO, ESP8266, and Adafruit IO. The system calculates the approximate fault distance based on voltage drop and provides real-time monitoring through an LCD display and cloud dashboard.
 
 ---
 
-## 📌 Table of Contents
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Hardware Used](#hardware-used)
-- [Block Diagram](#block-diagram)
-- [Circuit Diagram](#circuit-diagram)
-- [Working](#working)
-- [Cloud Dashboard (Adafruit IO)](#cloud-dashboard-adafruit-io)
-- [Skills Demonstrated](#skills-demonstrated)
-- [Demo Images](#demo-images)
-- [How to Use](#how-to-use)
-- [Contributors](#contributors)
+## 📖 Project Overview
 
----
+Underground cable faults are difficult to identify manually and often require significant time to locate. This project automates the fault detection process by identifying the faulty phase (R, Y, or B), estimating the fault distance, and uploading the data to the cloud for remote monitoring.
 
-## 🚀 Project Overview
-
-This system automatically detects the presence of a fault in underground 3-phase cables and calculates the fault distance using voltage drop logic. It helps in efficient maintenance and quick response to power failures.
-
-📲 **Live data is sent to the cloud using ESP8266 (NodeMCU)**  
-📟 **Faults and distances are displayed on an LCD screen and Adafruit IO**
+The system was developed as a Final Year B.E. Electronics and Telecommunication Engineering project.
 
 ---
 
 ## ✨ Features
-- Fault detection in R, Y, B phases
-- Fault distance calculation (2, 4, 6, 8 km)
-- LCD and Adafruit IO display
-- Real-time monitoring via Wi-Fi
-- Phase isolation using relays
+
+* Detects faults in R, Y, and B phases
+* Estimates fault distance (2 km, 4 km, 6 km, 8 km)
+* Displays fault information on a 16x2 I2C LCD
+* Uploads real-time data to Adafruit IO using ESP8266
+* Cloud-based monitoring through MQTT
+* Low-cost prototype suitable for academic demonstration
 
 ---
 
-## 🔧 Hardware Used
-- Arduino Uno
-- ESP8266 (30-pin NodeMCU)
-- 4-Channel Relay Module
-- I2C 16x2 LCD
-- Resistors and switches for simulation
-- Breadboard, jumper wires, power supply
+## 🛠 Hardware Components
+
+* Arduino UNO
+* ESP8266 NodeMCU
+* 16x2 I2C LCD Display
+* 4-Channel Relay Module
+* Resistors
+* Switches
+* Breadboard
+* Jumper Wires
+* Power Supply
 
 ---
 
-## 🧠 Block Diagram
+## 💻 Software & Technologies
 
-![Block Diagram](block-diagram.png)
-
----
-
-## 🛠 Circuit Diagram
-
-![Circuit Diagram](circuit-diagram.png)
-
----
-
-## ⚙️ Working
-
-1. Fault is simulated using switches and voltage divider resistors.
-2. Arduino reads voltage on A0 pin and calculates fault distance.
-3. Relays are triggered to isolate faulty phase.
-4. Data is sent via SoftwareSerial to ESP8266.
-5. ESP8266 publishes data to Adafruit IO (MQTT).
-6. LCD displays the phase-wise status and distance.
+* Arduino IDE
+* Embedded C/C++
+* ESP8266 Wi-Fi Module
+* MQTT Protocol
+* Adafruit IO
+* Git & GitHub
 
 ---
 
-## 🌐 Cloud Dashboard (Adafruit IO)
+## ⚙️ Working Principle
 
-![Dashboard](dashboard.png)
-
-- R/Y/B Phase Status
-- Fault Distance in Km
-- Real-time Voltage
-- History Graph (optional)
-
----
-
-## 💡 Skills Demonstrated
-- Embedded C/C++ (Arduino, ESP8266)
-- Serial Communication (UART/SoftwareSerial)
-- Cloud Integration via MQTT
-- Circuit Design and Simulation (Proteus/Fritzing)
-- IoT Dashboard (Adafruit IO)
+1. Faults are simulated using switches and resistor networks.
+2. Arduino continuously monitors the voltage.
+3. The voltage drop is used to estimate the fault distance.
+4. The faulty phase is identified.
+5. Data is transmitted to the ESP8266 using serial communication.
+6. ESP8266 publishes the data to Adafruit IO using MQTT.
+7. The LCD and cloud dashboard display the detected fault information.
 
 ---
 
-## 📸 Demo Images
+## 🖼 Block Diagram
 
-| Final Prototype | Dashboard |
-|-----------------|-----------|
-| ![Prototype](prototype.png) | ![Dashboard](dashboard.png) |
+![Block Diagram](Images/block-diagram.png)
 
 ---
 
-## 🧪 How to Use
-1. Upload the Arduino sketch to the Uno
-2. Upload the ESP8266 sketch via Arduino IDE
-3. Configure your Wi-Fi SSID and Adafruit IO credentials in code
-4. Power the system and monitor output on LCD and Adafruit IO
+## 🔌 Circuit Diagram
+
+![Circuit Diagram](Images/circuit-diagram.png)
 
 ---
 
-## 👨‍💻 Contributors
-- **Jay Dukare**  
-Electronics & Telecommunication Engineering  
-Modern College of Engineering, Pune  
-📧 [LinkedIn](https://www.linkedin.com/in/jaydukare) | 📡 IoT | ⚙️ Embedded Systems
+## ☁ Cloud Dashboard
+
+![Dashboard](Images/dashboard.png)
+
+The dashboard displays:
+
+* Fault Status
+* Fault Distance
+* Phase Information
+* Real-Time Updates
 
 ---
 
+## 📷 Prototype
+
+![Prototype](Images/prototype.png)
+
+---
+
+## 📂 Project Structure
+
+```text
+.
+├── Code
+│   ├── Arduino_UNO_Code.ino
+│   └── ESP8266_Code.ino
+│
+├── Images
+│   ├── block-diagram.png
+│   ├── circuit-diagram.png
+│   ├── dashboard.png
+│   └── prototype.png
+│
+├── Report
+│   └── Project_Report.pdf
+│
+└── README.md
+```
+
+---
+
+## 🚀 How to Run
+
+1. Upload the Arduino sketch to the Arduino UNO.
+2. Upload the ESP8266 sketch using Arduino IDE.
+3. Configure Wi-Fi credentials and Adafruit IO keys.
+4. Connect the hardware according to the circuit diagram.
+5. Power the system.
+6. Monitor the LCD and Adafruit IO dashboard.
+
+---
+
+## 📈 Future Improvements
+
+* GPS-based fault localization
+* Mobile application support
+* SMS and Email notifications
+* Battery backup
+* Support for longer cable distances
+
+---
+
+## 👨‍💻 Author
+
+**Purushottam Apte**
+
+Final Year B.E. Electronics & Telecommunication Engineering
+PES Modern College of Engineering, Pune
+
+📧 **Email:** [aptepuru19@gmail.com](mailto:aptepuru19@gmail.com)
+
+🔗 **GitHub:** https://github.com/Purushottam-13
+
+💼 **LinkedIn:** https://www.linkedin.com/in/purushottam-apte/
+
+---
+
+## 🤝 Project Information
+
+This repository contains the complete implementation and documentation of the IoT-Based Underground Cable Fault Detection System. The project was developed as a Final Year B.E. Electronics & Telecommunication Engineering team project, and this repository is maintained by Purushottam Apte.
+
+### Team Members
+
+* Purushottam Apte
+* Jay Ganesh Dukare
+* Ojas Vijay Hadgal
+
+---
+
+## 📄 Usage
+
+This project is shared for educational and portfolio purposes. Please provide appropriate attribution before reusing or modifying this work.
