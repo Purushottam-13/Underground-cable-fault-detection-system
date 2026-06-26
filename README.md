@@ -4,6 +4,14 @@ An IoT-enabled system that detects and locates underground cable faults in three
 
 ---
 
+![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white)
+![ESP8266](https://img.shields.io/badge/ESP8266-E7352C?style=for-the-badge)
+![IoT](https://img.shields.io/badge/IoT-Internet%20of%20Things-blue?style=for-the-badge)
+![MQTT](https://img.shields.io/badge/MQTT-660066?style=for-the-badge)
+![Adafruit IO](https://img.shields.io/badge/Adafruit%20IO-000000?style=for-the-badge)
+![Embedded C++](https://img.shields.io/badge/Embedded%20C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+
+
 ## 📖 Project Overview
 
 Underground cable faults are difficult to identify manually and often require significant time to locate. This project automates the fault detection process by identifying the faulty phase (R, Y, or B), estimating the fault distance, and uploading the data to the cloud for remote monitoring.
